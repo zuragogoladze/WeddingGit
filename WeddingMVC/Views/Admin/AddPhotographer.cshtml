@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "AddPhotographer";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<div class="form-group">
+    <input placeholder="სახელი" type="text" id="name" class="form-control" />
+</div>
+<div class="form-group">
+    <input placeholder="გვარი" type="text" id="surname" class="form-control" />
+</div>
+<div class="form-group">
+    <input placeholder="ინფორმაცია" type="text" id="info" class="form-control" />
+</div>
+<div class="form-group">
+    <input placeholder="ნომერი" type="text" id="number" class="form-control" />
+</div>
+<div class="form-group">
+    <input placeholder="ემეილი" type="text" id="email" class="form-control" />
+</div>
+<div class="form-group">
+    <input placeholder="ფეისბუქი" type="text" id="facebook" class="form-control" />
+</div>
+<div class="form-group">
+    <input placeholder="ინსტაგრამი" type="text" id="instagram" class="form-control" />
+</div>
+<div class="form-group">
+    <select class="selectpicker form-control" id="profession">
+            <option value="0">ფოტოგრაფი</option>
+            <option value="1">დიზაინერი</option>
+    </select>
+
+</div>
+
+<div class="form-group">
+    <p>პროფილის სურათი</p>
+    <input type="file" class="profile form-control" value="პროფილის სურათი" title="პროფილის სურათი" />
+</div>
+<div class="">
+    <div class="row customRow">
+        <div class="col-md-3 form-group">
+            <p>გალერეის სურათი</p>
+            <input type="file" class="form-control galery" value="სურათები" title="გალერეის სურათი"/>
+        </div>
+    </div>
+    <div class="row" style="margin-left: 10px">
+        <div class="form-group">
+            <span class="glyphicon glyphicon-plus" aria-hidden="true" style="font-size: 20px; cursor: pointer;" id="addPictureForm"></span>
+        </div>
+    </div>
+    <div class="row" style="margin-left: 10px; margin-top:20px">
+        <button class="btn btn-success" id="addPhotographer" type="submit">ატვირთვა</button>
+    </div>
+</div>
+
+

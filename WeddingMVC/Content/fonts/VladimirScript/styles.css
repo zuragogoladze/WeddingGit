@@ -1,0 +1,9 @@
+
+@font-face {
+  font-family: 'VladimirScript';
+  src: url('VladimirScript.eot?#iefix') format('embedded-opentype'),  
+  url('VladimirScript.woff') format('woff'), url('VladimirScript.ttf')  format('truetype'), 
+  url('VladimirScript.svg#VladimirScript') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

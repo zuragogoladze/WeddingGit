@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WeddingMVC.Models.Slider>
+
+@{
+    ViewBag.Title = "ManagePictures";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>ManagePictures</h2>
+
+<table class="table table-bordered table-hover">
+    <tbody>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                სახელი
+            </th>
+            <th>
+                აქტიური
+            </th>
+            <th>
+                დამატების თარიღი
+            </th>
+            <th>
+                დაამატა
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        @foreach (var item in @Model)
+        {
+
+            <tr data-ID="@item.ID">
+                <td>
+                    @item.ID
+                </td>
+                <td>
+                    @item.Name
+                </td>
+                <td data-isactive="@item.ID" id="isactive">
+                    @item.IsActive
+                </td>
+                <td>
+                    @item.CreateDate
+                </td>
+                <td>
+                    @item.User.Name
+                </td>
+                <td>
+                    @{
+                        if (@item.IsActive == true)
+                        {
+                            <button type="submit" class="btn addOrDeleteSliderPicture" data-id="@item.ID">დეაქტივაცია</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn addOrDeleteSliderPicture" data-id="@item.ID">გააქტიურება</button>
+                        }
+                    }
+
+                </td>
+            </tr>
+                        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "რეგისტრაცია";
+}
+
+<h2>რეგისტრაცია</h2>
+
+<form action="/Account/Registration" method="post">
+    <div class="d-flex flex-column align-items-center" style="margin-top: 88px;">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="სახელი" name="name" />
+        </div>
+
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="გვარი" name="surname" />
+        </div>
+
+        <div class="form-group">
+            <input type="email" class="form-control" placeholder="ელ.ფოსტა" name="email" />
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="პაროლი" name="password" />
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="გაიმეორეთ პაროლი" name="passwordRepeat" />
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success"> რეგისტრაცია</button>
+        </div>
+
+        <div class="form-group" style="font-size: 14px; color: red;">
+            @ViewBag.message
+        </div>
+    </div>
+</form>
+

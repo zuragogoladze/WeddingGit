@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title> blog </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="home.html"> Home </a>
+                <a href="planning.html">Planning</a>
+                <a href="#">Blog</a>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+
+        <div id="burgerIcon" class="burger-icon">
+            <span onclick="openNav()">&#9776;</span>
+        </div>
+
+        <nav class="navbar navbar-expand navbar-light">
+
+            <ul class="navbar-nav navbar-position justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link nav-color active-item nav-txt mr-2" href="home.html"> Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-color nav-txt mr-2" href="planning.html"> Planning </a>
+                </li>
+                <li class="nav-item">
+                    <img src="img/svg/Wedding_Logo.svg" alt="logo">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-color nav-txt nav-active ml-2" href="#"> Blog </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-color nav-txt ml-2" href="about.html"> About </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section>
+        <div class="container-fluid p-0 mb-5">
+            <div class="blog-banner" style="background-image: url('img/15.jpg')">
+                <div class="banner-txt">
+                    <h3 class="tracking-in-contract-bck"> Our Blog </h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container mb-3">
+            <div class="d-inline-block align-middle">
+                <div class="input-group date">
+                    <input type="text" class="form-control blog-form" id="datepicker" placeholder="Date">
+                    <!-- <i class="fa fa-caret-down blog-triagle" aria-hidden="true"></i> -->
+                </div>
+            </div>
+
+            <div class="d-inline-block">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Category
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Designers</a>
+                        <a class="dropdown-item" href="#">Photographers</a>
+                        <a class="dropdown-item" href="#">Decorations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="mb-5 pb-5">
+        <div class="row">
+            <div class="container p-0">
+                <div class="gallery-wrapper clearfix">
+                    <div class="col-lg-4 col-md-6 grid-sizer"></div>
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/1.jpg" alt="1">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/11.jpg" alt="11">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/5.jpg" alt="5">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/4.jpg" alt="4">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/6.jpg" alt="6">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/2.jpg" alt="2">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/8.jpg" alt="8">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/3.jpg" alt="3">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 grid-item">
+                        <div class="card">
+                            <img class="img-fluid" src="img/blog/7.jpg" alt="7">
+                            <div class="card-body">
+                                <h5 class="card-title"> Interior Design </h5>
+                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        May 11, 2018</small>
+                                    <a href="blog1.html" class="btn-more">Read More</a>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <footer>
+
+        <div class="col-12 text-center">
+
+            <ul class="p-0 mt-2 mb-3">
+                <li class="d-inline-block mr-1">
+                    <a class="social-icon" href="#">
+                        <img src="img/svg/facebook.svg" alt="facebook">
+                    </a>
+                </li>
+                <li class="d-inline-block mr-1">
+                    <a class="social-icon" href="#">
+                        <img src="img/svg/twitter.svg" alt="twitter">
+                    </a>
+                </li>
+                <li class="d-inline-block mr-1">
+                    <a class="social-icon" href="#">
+                        <img src="img/svg/instagram.svg" alt="instagram">
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </footer>
+
+
+
+
+
+
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/viewportchecker.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/masonry.pkgd.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/bootstrap-datepicker.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/blog.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

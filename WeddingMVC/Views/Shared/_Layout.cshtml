@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+@using WeddingMVC.Models
+
+@{
+    var user = Session["logedInUser"] as User;
+}
+<head>
+    <meta charset="utf-8" />
+    <title> home </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Content/css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/fonts.css">
+    <link href="/Content/css/masterslider.main.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="/Content/css/style.css">
+    
+</head>
+
+<body>
+
+    <header>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="@Url.Action("Index", "Home")"> Home </a>
+                <a href="@Url.Action("Planning", "Home")">Planning</a>
+                <a href="@Url.Action("Blog", "Home")">Blog</a>
+                <a href="@Url.Action("About", "Home")">About</a>
+                @{
+                    if (user != null && user.Role == 100)
+                    {
+                        <a href="@Url.Action("Index", "Admin")">AdminPanel</a>
+                    }
+                }
+                
+            </div>
+        </div>
+
+        <div id="burgerIcon" class="burger-icon">
+            <span onclick="openNav()">&#9776;</span>
+        </div>
+        
+        <nav class="navbar navbar-expand navbar-light">
+
+            <ul class="navbar-nav navbar-position justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link nav-color active-item nav-txt @(ViewBag.Title == "Index" ? "nav-active active" : "") mr-2" href="@Url.Action("Index", "Home")">
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-color nav-txt mr-2 @(ViewBag.Title == "Planning" ? "nav-active active" : "")" href="@Url.Action("Planning", "Home")"> Planning </a>
+                </li>
+                <li class="nav-item">
+                    <img src="~/Content/img/svg/Wedding_Logo.svg" alt="logo">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-color nav-txt ml-2 @(ViewBag.Title == "Blog" ? "nav-active active" : "")" href="@Url.Action("Blog", "Home")"> Blog </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-color nav-txt ml-2 @(ViewBag.Title == "About" ? "nav-active active" : "")" href="@Url.Action("About", "Home")"> About </a>
+                </li>
+                @{
+                    if (user != null && user.Role == 100)
+                    {
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Admin")" class="nav-link nav-color nav-txt ml-2">AdminPanel</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    </header>
+    @RenderBody()
+    <footer>
+
+        <div class="col-12 text-center">
+
+            <ul class="p-0 mt-2 mb-2">
+                <li class="d-inline-block mr-1">
+                    <a class="social-icon" href="#">
+                        <img src="~/Content/img/svg/facebook.svg" alt="facebook">
+                    </a>
+                </li>
+                <li class="d-inline-block mr-1">
+                    <a class="social-icon" href="#">
+                        <img src="~/Content/img/svg/twitter.svg" alt="twitter">
+                    </a>
+                </li>
+                <li class="d-inline-block mr-1">
+                    <a class="social-icon" href="#">
+                        <img src="~/Content/img/svg/instagram.svg" alt="instagram">
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </footer>
+
+
+
+
+
+    <script src="/Content/js/jquery-3.3.1.js"></script>
+    <script src="/Content/js/jquery.fancybox.min.js"></script>
+    <script src="/Content/js/isotope-v3.0.5.js"></script>
+    <script src="/Content/js/bootstrap.min.js"></script>
+    <script src="/Content/js/common.js"></script>
+    <script src="~/Scripts/Account/AccountJS.js"></script>
+    
+    <script src="/Content/js/slick.min.js"></script>
+    <script src="/Content/js/masterslider.min.js"></script>
+    <script src="/Content/js/planning.js"></script>
+
+
+
+
+</body>
+
+</html>

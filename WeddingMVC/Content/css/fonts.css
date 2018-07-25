@@ -1,0 +1,91 @@
+
+  
+
+  @font-face {
+    font-family: 'VladimirScript';
+    src: url('../fonts/VladimirScript/VladimirScript.eot?#iefix') format('embedded-opentype'),  
+    url('../fonts/VladimirScript/VladimirScript.woff') format('woff'), 
+    url('../fonts/VladimirScript/VladimirScript.ttf')  format('truetype'), 
+    url('../fonts/VladimirScript/VladimirScript.svg#VladimirScript') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'ArialMT';
+    src: url('../fonts/ArialMT/ArialMT.eot?#iefix') format('embedded-opentype'),  
+    url('../fonts/ArialMT/ArialMT.woff') format('woff'), 
+    url('../fonts/ArialMT/ArialMT.ttf')  format('truetype'), 
+    url('../fonts/ArialMT/ArialMT.svg#ArialMT') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+  @font-face {
+    font-family: 'MyriadPro-Regular';
+    src: url('../fonts/MyriadPro-Regular/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),  
+    url('../fonts/MyriadPro-Regular/MyriadPro-Regular.otf')  format('opentype'),
+    url('../fonts/MyriadPro-Regular/MyriadPro-Regular.woff') format('woff'), 
+    url('../fonts/MyriadPro-Regular/MyriadPro-Regular.ttf')  format('truetype'), 
+    url('../fonts/MyriadPro-Regular/MyriadPro-Regular.svg#MyriadPro-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica/Helvetica.eot?#iefix') format('embedded-opentype'),  
+    url('../fonts/Helvetica/Helvetica.woff') format('woff'), 
+    url('../fonts/Helvetica/Helvetica.ttf')  format('truetype'), 
+    url('../fonts/Helvetica/Helvetica.svg#Helvetica') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+
+  
+@font-face {
+  font-family: 'MinionPro-Regular';
+  src: url('../fonts/MinionPro-Regular/MinionPro-Regular.eot?#iefix') format('embedded-opentype'),  
+  url('../fonts/MinionPro-Regular/MinionPro-Regular.otf')  format('opentype'),
+  url('../fonts/MinionPro-Regular/MinionPro-Regular.woff') format('woff'), 
+  url('../fonts/MinionPro-Regular/MinionPro-Regular.ttf')  format('truetype'), 
+  url('../fonts/MinionPro-Regular/MinionPro-Regular.svg#MinionPro-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'GreatVibes-Regular';
+  src: url('../fonts/GreatVibes-Regular/GreatVibes-Regular.eot?#iefix') format('embedded-opentype'),  
+  url('../fonts/GreatVibes-Regular/GreatVibes-Regular.woff') format('woff'), 
+  url('../fonts/GreatVibes-Regular/GreatVibes-Regular.ttf')  format('truetype'), 
+  url('../fonts/GreatVibes-Regular/GreatVibes-Regular.svg#GreatVibes-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* @font-face {
+  font-family: 'ShadedLarchPERSONALUSEONLY';
+  src: url('../fonts/ShadedLarchPERSONALUSEONLY/ShadedLarchPERSONALUSEONLY.eot?#iefix') format('embedded-opentype'),  
+  url('../fonts/ShadedLarchPERSONALUSEONLY/ShadedLarchPERSONALUSEONLY.woff') format('woff'), 
+  url('../fonts/ShadedLarchPERSONALUSEONLY/ShadedLarchPERSONALUSEONLY.ttf')  format('truetype'), 
+  url('../fonts/ShadedLarchPERSONALUSEONLY/ShadedLarchPERSONALUSEONLY.svg#ShadedLarchPERSONALUSEONLY') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+
+@font-face {
+  font-family: 'Arial-BoldMT';
+  src: url('../fonts/Arial-BoldMT/Arial-BoldMT.eot?#iefix') format('embedded-opentype'),  
+  url('../fonts/Arial-BoldMT/Arial-BoldMT.woff') format('woff'), 
+  url('../fonts/Arial-BoldMT/Arial-BoldMT.ttf')  format('truetype'), 
+  url('../fonts/Arial-BoldMT/Arial-BoldMT.svg#Arial-BoldMT') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+  
