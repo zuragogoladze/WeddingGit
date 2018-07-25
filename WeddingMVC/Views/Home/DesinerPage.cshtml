@@ -1,0 +1,101 @@
+﻿@model WeddingMVC.Models.Photographer
+@{
+    ViewBag.Title = "DesinerPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string profile = @Model.ProfilePicture + ".png";
+    var pictures = @Model.PhotographerPictures;
+}
+
+<section class="mt-5 pt-5">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-lg-3 col-md-4 col-sm-5">
+                <div class="internal-img">
+                    <img src="/Content/img/desinerpictures/@profile" alt="">
+                    <h2> @(Model.Name + " " + Model?.Surname)</h2>
+
+                    @*<span class="count-icon">
+
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <img src="/Content/img/comment.png">
+                            <span class="count">3</span>
+                        </span>*@
+
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-md-8 col-sm-7 align-self-end mb-5">
+                <div class="internal-info">
+
+
+
+                    <div class="social-info d-inline-flex">
+                        <i class="fa fa-info" aria-hidden="true"></i>
+                        <p class="pl-3">
+                            @Model.Information
+                        </p>
+                    </div>
+
+                    <div class="social-info">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <p>
+                            @Model.MobileNumber
+                        </p>
+                    </div>
+
+                    <div class="social-info">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                        <p>
+                            @Model.Email
+                        </p>
+                    </div>
+
+
+                    <span class="social-info">
+                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                    </span>
+
+                    <a class="social-icon social-icon2 pl-2" href="@Model.Facebook">
+                        <img src="/Content/img/svg/facebook.svg" alt="facebook">
+                    </a>
+
+                    <a class="social-icon social-icon2" href="@Model.Instagram">
+                        <img src="/Content/img/svg/instagram.svg" alt="instagram">
+                    </a>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container-fluid">
+
+        <div class="photog-txt">
+            <h2 class="col-12 text-left">
+                portfolio
+                <hr align="left" width="50%" class="inter-line">
+            </h2>
+        </div>
+        <div class="row internal-portfolio">
+            @{
+                foreach (var item in pictures)
+                {
+                    string pictureName = @item.PictureName + ".png";
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <a href="/Content/img/galerypictures/@pictureName" data-fancybox="images">
+                            <div style="background-image: url(/Content/img/galerypictures/@pictureName)" class="isotope-img mb-3 rounded"></div>
+                        </a>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Country1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_Country" FromRole="Country" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Country1" Relationship="Self.FK_Product_Country" FromRole="Product" ToRole="Country" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Role" Type="Int32" Nullable="false" />
+    <Property Name="ResetPassword" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Sliders" Relationship="TestModel.FK_Slider_User" FromRole="User" ToRole="Slider" />
+  </EntityType>
+  <Association Name="FK_Product_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TestEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Product_Country" Association="Self.FK_Product_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <EntitySet Name="Sliders" EntityType="TestModel.Slider" />
+    <AssociationSet Name="FK_Slider_User" Association="TestModel.FK_Slider_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Slider" EntitySet="Sliders" />
+    </AssociationSet>
+    <EntitySet Name="Photographers" EntityType="TestModel.Photographer" />
+    <EntitySet Name="PhotographerPictures" EntityType="TestModel.PhotographerPicture" />
+    <AssociationSet Name="FK_PhotographerPictures_Photographer" Association="TestModel.FK_PhotographerPictures_Photographer">
+      <End Role="Photographer" EntitySet="Photographers" />
+      <End Role="PhotographerPicture" EntitySet="PhotographerPictures" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="TestModel.FK_Slider_User" FromRole="Slider" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Slider_User">
+    <End Type="TestModel.User" Role="User" Multiplicity="1" />
+    <End Type="TestModel.Slider" Role="Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Slider">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Photographer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Information" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Facebook" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Instagram" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProfilePicture" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PhotographerPictures" Relationship="TestModel.FK_PhotographerPictures_Photographer" FromRole="Photographer" ToRole="PhotographerPicture" />
+    <Property Name="Profession" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PhotographerPicture">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PictureName" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="PhotographerID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Photographer" Relationship="TestModel.FK_PhotographerPictures_Photographer" FromRole="PhotographerPicture" ToRole="Photographer" />
+  </EntityType>
+  <Association Name="FK_PhotographerPictures_Photographer">
+    <End Type="TestModel.Photographer" Role="Photographer" Multiplicity="1" />
+    <End Type="TestModel.PhotographerPicture" Role="PhotographerPicture" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photographer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhotographerPicture">
+        <PropertyRef Name="PhotographerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

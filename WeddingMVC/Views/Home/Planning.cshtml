@@ -1,12 +1,14 @@
-﻿
+﻿@model IEnumerable<WeddingMVC.Models.Photographer>
 @{
     ViewBag.Title = "Planning";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var desiners = @Model.Where(x => x.Profession == "დიზაინერი");
+    var photographers = @Model.Where(x => x.Profession == "ფოტოგრაფი");
 }
 
-<link href="/Content/css/slick-theme.css" rel="stylesheet" type="text/css"/>
-<link href="/Content/css/slick.css" rel="stylesheet" type="text/css"/>
-<link href="/Content/css/reset.css" rel="stylesheet" type="text/css"/>
+<link href="/Content/css/slick-theme.css" rel="stylesheet" type="text/css" />
+<link href="/Content/css/slick.css" rel="stylesheet" type="text/css" />
+<link href="/Content/css/reset.css" rel="stylesheet" type="text/css" />
 
 <section class="photographer">
 
@@ -15,34 +17,57 @@
         <hr class="line1">
 
     </div>
+    @{
+        var firstuser = photographers.FirstOrDefault(x => x.Profession == "ფოტოგრაფი")?.ProfilePicture + ".png";
+
+    }
     <div class="ms-staff-carousel ms-round g-mt-50">
         <div id="masterslider" class="master-slider ms-skin-default">
             <div class="ms-slide" data-delay="3" data-fill-mode="fill">
-                <img src="/Content/img/andria/andria.jpg" alt="pofile" title="" data-src="/Content/img/andria/andria.jpg">
+                <img src="/Content/img/desinerpictures/@firstuser" ) alt="pofile" title="" data-src="/Content/img/desinerpictures/@firstuser" />
                 <div class="ms-info photog-description">
                     <h3 style="text-align: center;">
-                        <a href="@Url.Action("Photographer","Home",new {user = "Andria"})"> Andria </a>
+                        <a href="@Url.Action("Photographer","Home",new {user = @Model?.FirstOrDefault(x=>x.Profession=="ფოტოგრაფი")?.ProfilePicture})"> @(Model?.FirstOrDefault(x => x.Profession == "ფოტოგრაფი")?.Name) </a>
                     </h3>
                 </div>
             </div>
 
-            <div class="ms-slide" data-delay="3" data-fill-mode="fill">
-                <img src="/Content/img/nutsa/nuca.jpg" alt="profile" title="" data-src="/Content/img/nutsa/nuca.jpg">
-                <div class="ms-info photog-description">
-                    <h3 style="text-align: center;">
-                        <a href="photographer.html"> Nutsa </a>
-                    </h3>
-                </div>
-            </div>
+            @{
+                foreach (var item in photographers?.Skip(1))
+                {
+                    if (item.Profession == "ფოტოგრაფი")
+                    {
+                        var picturename = item.ProfilePicture + ".png";
+                        <div class="ms-slide" data-delay="3" data-fill-mode="fill">
+                            <img src="/Content/img/desinerpictures/@picturename" alt="profile" title="" data-src="/Content/img/desinerpictures/@picturename">
+                            <div class="ms-info photog-description">
+                                <h3 style="text-align: center;">
+                                    <a href="@Url.Action("Photographer","Home",new {user = item.ProfilePicture})"> @item.Name </a>
+                                </h3>
+                            </div>
+                        </div>
+                    }
+                }
+            }
 
-            <div class="ms-slide" data-delay="3" data-fill-mode="fill">
-                <img src="/Content/img/blog/5.jpg" alt="profile" title="" data-src="/Content/img/blog/5.jpg">
-                <div class="ms-info photog-description">
-                    <h3 style="text-align: center;">
-                        <a href="photographer.html"> Andria </a>
-                    </h3>
+
+            @*<div class="ms-slide" data-delay="3" data-fill-mode="fill">
+                    <img src="/Content/img/nutsa/nuca.jpg" alt="profile" title="" data-src="/Content/img/nutsa/nuca.jpg">
+                    <div class="ms-info photog-description">
+                        <h3 style="text-align: center;">
+                            <a href="photographer.html"> Nutsa </a>
+                        </h3>
+                    </div>
                 </div>
-            </div>
+
+                <div class="ms-slide" data-delay="3" data-fill-mode="fill">
+                    <img src="/Content/img/blog/5.jpg" alt="profile" title="" data-src="/Content/img/blog/5.jpg">
+                    <div class="ms-info photog-description">
+                        <h3 style="text-align: center;">
+                            <a href="photographer.html"> Andria </a>
+                        </h3>
+                    </div>
+                </div>*@
 
         </div>
     </div>
@@ -61,24 +86,52 @@
         <hr class="line1">
     </div>
 
-    <div class="slider container">
 
+    @{
+        var firstdesiner = @Model?.FirstOrDefault(x => x.Profession == "დიზაინერი");
+        var firstdesinerpicture = Model?.FirstOrDefault(x => x.Profession == "დიზაინერი")?.ProfilePicture + ".png";
+        var firstdesinerfullname = firstdesiner.Name + " " + firstdesiner?.Surname;
+
+    }
+    <div class="slider container">
         <div class="col-lg-4 col-md-6 col-6  wow fadeInUp" data-wow-delay="0.4s">
             <div class="team-thumb">
-                <a href="photographer.html">
+                <a href="@Url.Action("DesinerPage", "Home", new {user=firstdesiner?.ProfilePicture})">
                     <div class="image-holder">
-                        <img class="img-circle" src="/Content/img/dec1.jpg" alt="Image">
+                        <img class="img-circle" src="/Content/img/desinerpictures/@firstdesinerpicture" alt="Image">
                     </div>
-                    <h2 class="heading"> description </h2>
+                    @*<h2 class="heading"> description </h2>*@
                     <p class="description">
-                        The text-decoration property adds an underline.
+                        @firstdesinerfullname
                     </p>
                 </a>
             </div>
         </div>
+        @foreach (var item in desiners.Skip(1))
+        {
+            if (item.Profession == "დიზაინერი")
+            {
+                var desinerfullname = item.Name + " " + item?.Surname;
+                var desinerpicture = item.ProfilePicture + ".png";
+                <div class="col-lg-4 col-md-6 col-6  wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="team-thumb">
+                        <a href="@Url.Action("DesinerPage", "Home", new {user=item.ProfilePicture})">
+                            <div class="image-holder">
+                                <img class="img-circle" src="/Content/img/desinerpictures/@desinerpicture" alt="Image">
+                            </div>
+                            <h2 class="heading"> description </h2>
+                            <p class="description">
+                                @desinerfullname
+                            </p>
+                        </a>
+                    </div>
+                </div>
 
+            }
+        }
+    </div>
 
-        <div class="col-lg-4 col-md-6 col-6  wow fadeInUp" data-wow-delay="0.4s">
+    @*<div class="col-lg-4 col-md-6 col-6  wow fadeInUp" data-wow-delay="0.4s">
             <div class="team-thumb">
                 <a href="photographer.html">
                     <div class="image-holder">
@@ -134,8 +187,6 @@
                 </a>
             </div>
         </div>
-
-
         <div class="col-lg-4 col-md-6 col-6  wow fadeInUp" data-wow-delay="0.4s">
             <div class="team-thumb">
                 <a href="photographer.html">
@@ -178,9 +229,12 @@
                     </p>
                 </a>
             </div>
-        </div>
+        </div>*@
 
-    </div>
+
+
+
+
 
 
 </section>

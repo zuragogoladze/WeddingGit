@@ -24,12 +24,19 @@ namespace WeddingMVC.Controllers
 
         public ActionResult Planning()
         {
-            return View();
+            var photographers = _db.Photographers;
+            return View(photographers);
         }
 
-        public ActionResult Photographer()
+        public ActionResult Photographer(string user)
         {
-            return View();
+            var photographer = _db.Photographers.FirstOrDefault(x=>x.ProfilePicture==user);
+            return View(photographer);
+        }
+        public ActionResult DesinerPage(string user)
+        {
+            var photographer = _db.Photographers.FirstOrDefault(x => x.ProfilePicture == user);
+            return View(photographer);
         }
     }
 }

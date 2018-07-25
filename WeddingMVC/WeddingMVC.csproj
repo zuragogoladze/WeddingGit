@@ -421,6 +421,7 @@
     <Content Include="Views\Home\Planning.cshtml" />
     <Content Include="Views\Home\Photographer.cshtml" />
     <Content Include="Views\Admin\AddPhotographer.cshtml" />
+    <Content Include="Views\Home\DesinerPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
